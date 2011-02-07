@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/lib/indeed_api/version'
 
 spec = Gem::Specification.new do |s|
   
-  s.name = 'indeed' 
+  s.name = 'indeed_api'
   s.author = 'John Crepezzi'
   s.add_development_dependency('rspec')
   s.add_dependency('httparty', '~> 0.7.3')
@@ -16,6 +16,6 @@ spec = Gem::Specification.new do |s|
   s.summary = 'Ruby wrapper for the Indeed Job API'
   s.test_files = Dir.glob('spec/*.rb')
   s.version = IndeedAPI::VERSION
-  s.rubyforge_project = 'indeed'
+  s.rubyforge_project = 'indeed_api'
 
 end

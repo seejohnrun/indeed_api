@@ -1,7 +1,7 @@
 require 'spec/rake/spectask'
-require 'lib/indeed_api/version'
+require File.dirname(__FILE__) + '/lib/indeed_api/version'
  
-task :build => :test do
+task :build  do
   system "gem build indeed_api.gemspec"
 end
 
