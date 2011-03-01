@@ -1,1 +1,1 @@
-require 'lib/indeed_api'
+require File.dirname(__FILE__) + '/../lib/indeed_api'

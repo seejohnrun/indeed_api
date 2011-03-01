@@ -5,7 +5,7 @@ spec = Gem::Specification.new do |s|
   s.name = 'indeed_api'
   s.author = 'John Crepezzi'
   s.add_development_dependency('rspec')
-  s.add_dependency('httparty', '~> 0.7.3')
+  s.add_dependency('httparty')
   s.description = 'Ruby wrapper for the Indeed Job search API'
   s.email = 'john.crepezzi@patch.com'
   s.files = Dir['lib/**/*.rb']
