@@ -21,10 +21,18 @@ describe IndeedAPI do
     job.should be_a(IndeedAPI::Job)
   end
 
+  it 'should be able to get result counts from a search' do
+    jobs = IndeedAPI.search_jobs(:q => 'software engineer')
+    jobs.total_results.should be > 0
+    jobs.start.should == 1
+    jobs.end.should == 10
+  end
+
   it 'should be able to search for jobs' do
     jobs = IndeedAPI.search_jobs(:q => 'software engineer')
-    jobs.size.should be > 0
-    jobs.each { |j| j.should be_a(IndeedAPI::Job) }
+    jobs.should be_a(IndeedAPI::Search)
+    jobs.results.size.should be > 0
+    jobs.results.each { |j| j.should be_a(IndeedAPI::Job) }
   end
 
   it 'should be able to access fields on jobs' do

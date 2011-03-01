@@ -5,6 +5,7 @@ module IndeedAPI
 
   autoload :IndeedError, File.dirname(__FILE__) + '/indeed_api/indeed_error'
   autoload :Job, File.dirname(__FILE__) + '/indeed_api/job'
+  autoload :Search, File.dirname(__FILE__) + '/indeed_api/search'
 
   API_VERSION = 2
 
@@ -28,10 +29,9 @@ module IndeedAPI
     response = get('/apisearch', :query => options)
     handle_errors(response)
 
-    return [] unless results = response['response']
-    return [] unless results = results['results']
-    return [] unless results = results['result']
-    results.is_a?(Hash) ? [IndeedAPI::Job.new(results)] : results.map { |jd| IndeedAPI::Job.new(jd) }
+    if data = response['response']
+      IndeedAPI::Search.new(data)
+    end
   end
 
   # Get an individual job - for convenience
