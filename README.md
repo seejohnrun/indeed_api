@@ -23,7 +23,7 @@ Set your publisher ID:
 Search Jobs (use any search options from https://ads.indeed.com/jobroll/xmlfeed)
 
     jobs = IndeedAPI.search_jobs(:q => 'software engineer')
-    jobs.each { |j| j.job_title }
+    jobs.results.each { |j| j.job_title }
 
 Or get jobs by id:
 
