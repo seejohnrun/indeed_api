@@ -25,6 +25,12 @@ Search Jobs (use any search options from https://ads.indeed.com/jobroll/xmlfeed)
     jobs = IndeedAPI.search_jobs(:q => 'software engineer')
     jobs.results.each { |j| j.job_title }
 
+The search result object has a few more methods for easy pagination details
+
+    jobs.start # 1
+    jobs.end   # 10
+    jobs.total_results # 200
+
 Or get jobs by id:
 
     jobs = IndeedAPI.get_jobs(id1, id2 ...)
